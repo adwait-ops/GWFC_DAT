@@ -1,0 +1,165 @@
+
+GWDA lectures
+
+Noise defines geometry (Lecture 1)
+Matched filtering = optimal projection (Lecture 2)
+Likelihood ratio = optimal detection rule (Lecture 3)
+Networks + parameter space + localization (Lecture 4)
+Real pipeline implementation (Lecture 5) --> Bhooshan Gadre
+
+Lecture 1: Statistical Foundations + Detector Response
+--------------------------------------------------------
+
+Core Topics:
+
+Data model: x(t) = n(t) + h(t)
+Random variables: multivariate Gaussian distributions
+Noise characterization: stationarity (WSS), PSD
+Autocorrelation and power spectral density
+Noise-weighted inner product and Hilbert space view
+
+Advanced Topics:
+
+Covariance matrix as metric, inverse covariance
+Whitening operator and geometric interpretation
+PSD estimation (Welch, median, windowing effects)
+Non-Gaussian noise and glitches
+Breakdown of stationarity
+
+Detector Response:
+
+h(t) = Fp hp + Fc hc
+Antenna pattern functions Fp, Fc
+Sky dependence (RA/Dec), polarization angle
+Detector sensitivity and blind spots
+Parameter dependence h(t; theta, \hat n, \psi)
+
+Tutorial:
+
+Generate Gaussian noise (white vs colored)
+Estimate PSD from data
+Compute covariance matrix
+Plot antenna patterns over the sky
+
+
+Lecture 2: Matched Filtering and Optimal Detection
+--------------------------------------------------------
+
+Core Topics:
+
+Detection problem: H0 (noise) vs H1 (signal + noise)
+Matched filter derivation
+Signal-to-noise ratio (SNR)
+Frequency-domain implementation (FFT)
+Optimality of matched filtering
+
+Advanced Topics:
+
+Variational derivation of matched filter
+Likelihood interpretation: log \Lambda = (x,h) - (1/2)(h,h)
+Maximization over phase and time
+Template normalization
+Effect of waveform mismatch
+Robustness issues in non-Gaussian noise
+
+Detector/Network Aspect:
+
+Detector-dependent signal: h_d(t) = Fp^d hp + Fc^d hc
+Same source, different projections across detectors
+
+Tutorial:
+
+Implement matched filtering using FFT
+Inject CBC waveform and recover SNR
+Study mismatch effects
+Compare whitening vs non-whitening
+Two-detector signal comparison
+
+
+Lecture 3: Neyman - Pearson Lemma & Detection Geometry
+--------------------------------------------------------
+
+Core Topics:
+
+Likelihood ratio test
+Neyman–Pearson lemma
+False alarm vs detection probability
+1D, 2D, and nD Gaussian cases
+ROC curves
+
+Advanced Topics:
+
+Full nD derivation using quadratic forms (will see if its possible)
+Geometric interpretation (hyperplanes in data space)
+Generalized likelihood ratio test (GLRT)
+Composite vs simple hypotheses
+Limits of NP optimality in non-Gaussian noise
+Brief Bayesian contrast
+
+Network Extension:
+
+Multi-detector likelihood: sum over detectors
+Detection statistic as network quantity
+
+Tutorial:
+
+Simulate hypothesis testing
+Plot ROC curves
+Visualize decision boundaries
+Compare Gaussian vs glitchy noise
+Combine likelihood across detectors
+
+Lecture 4: Composite Hypothesis, Template Banks, Network Likelihood & Localization
+----------------------------------------------------------------------------------
+
+Core Topics:
+
+Composite hypothesis: h(\theta)
+Maximum likelihood detection
+Template banks
+Ambiguity function
+
+Advanced Topics:
+
+Metric on parameter space: g_ij = (\partial_i h, \partial_j h)
+Mismatch and template spacing
+Template placement (geometric vs stochastic)
+Parameter degeneracies (chirp mass, spins)
+
+Network Likelihood:
+
+Multi-detector likelihood formulation
+Combining matched filter outputs
+
+Sky Localization:
+
+Timing triangulation
+\Delta t = (\hat n \cdot (\vec x1 - \vec x2)) / c
+Two detectors leads to ring
+Three detectors leads to localization patch
+Role of antenna patterns
+Degeneracies (mirror solutions, inclination-distance)
+
+Detection Statistic (conceptual):
+
+Why SNR alone is insufficient
+Idea of \chisq veto
+Ranking statistics (conceptual only)
+
+Background (conceptual):
+
+Time slides idea
+FAR definition
+Empirical noise distributions
+
+Tutorial:
+
+Compute overlaps and mismatch
+Build small template bank
+Simulate timing triangulation
+Combine detector likelihoods
+Construct simple sky maps
+
+
+Lecture 5: PyCBC Pipeline (Bhooshan Gadre - Live Session)
+--------------------------------------------------------
