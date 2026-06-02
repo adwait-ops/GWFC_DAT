@@ -9,6 +9,7 @@ Tutors:
 - Abhishek Sharma, IUCAA
 - Anirban Kopty, IUCAA
 - Sudhir Gholap, IUCAA
+- Lalit Pathak, IUCAA
 
 
 # Usage
